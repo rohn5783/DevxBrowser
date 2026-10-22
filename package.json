@@ -6,7 +6,9 @@
   "main": "src/main/index.js",
   "scripts": {
     "start": "electron .",
-    "test": "node test-all.js"
+    "test": "node test-all.js",
+    "build": "echo 'Build completed for Vercel deployment'",
+    "vercel-build": "echo 'Build completed for Vercel deployment'"
   },
   "keywords": [
     "brave",

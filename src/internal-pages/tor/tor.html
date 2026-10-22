@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Window with Tor</title>
+  <link rel="stylesheet" href="tor.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="tor-container">
+    <header class="tor-header">
+      <div class="tor-badge">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#A742EB" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      </div>
+      <h1>You're in a Private Window with Tor</h1>
+      <p class="tor-subtitle">Brave never remembers what you do in a Private Window. With Tor, your browsing is completely anonymized from your ISP, employer, and visited sites.</p>
+    </header>
+
+    <!-- Tor Circuit Visualizer -->
+    <section class="circuit-card">
+      <div class="circuit-header">
+        <div>
+          <h2>Active Tor Onion Circuit</h2>
+          <span class="circuit-status">● Protected & Encrypted with 3 Relays</span>
+        </div>
+        <button class="circuit-refresh-btn" id="newCircuitBtn">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          New Tor Circuit
+        </button>
+      </div>
+
+      <div class="circuit-nodes" id="circuitNodes">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Tor Privacy Checklist -->
+    <section class="checklist-grid">
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <div>
+          <h3>IP Address Hidden</h3>
+          <p>Websites see the Tor Exit Node IP instead of your personal home IP.</p>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <div>
+          <h3>Zero Local Traces</h3>
+          <p>Browsing history, cookies, and form fills are erased automatically on tab close.</p>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon">✓</div>
+        <div>
+          <h3>Onion Services Support</h3>
+          <p>Directly resolves special dark web <code>.onion</code> domain names.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="tor.js"></script>
+</body>
+</html>

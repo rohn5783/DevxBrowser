@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brave Shields & Filters</title>
+  <link rel="stylesheet" href="shields.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="shields-page-container">
+    <header class="page-header">
+      <div class="brand">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="#FF7626"><path d="M12 2L4 7V15C4 22.38 9.12 29.23 12 31C14.88 29.23 20 22.38 20 15V7L12 2Z"/></svg>
+        <div>
+          <h1>Brave Shields & Content Filters</h1>
+          <p>Advanced privacy protections, Adblock Plus filter rules, and tracker defenses.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Protection Modules Grid -->
+    <section class="modules-grid">
+      <div class="module-card">
+        <div class="module-info">
+          <h3>Brave Clean URLs & Debouncing</h3>
+          <p>Automatically strips tracking query tokens (<code>fbclid</code>, <code>gclid</code>, <code>utm_*</code>) before navigating.</p>
+        </div>
+        <span class="active-badge">Active</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-info">
+          <h3>Brave De-AMP</h3>
+          <p>Bypasses Google Accelerated Mobile Pages (AMP) and canonicalizes links to original publisher sites.</p>
+        </div>
+        <span class="active-badge">Active</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-info">
+          <h3>Cookie Consent Auto-Blocker</h3>
+          <p>Cosmetic filters automatically suppress GDPR, CCPA, and cookie consent modals from obstructing content.</p>
+        </div>
+        <span class="active-badge">Active</span>
+      </div>
+
+      <div class="module-card">
+        <div class="module-info">
+          <h3>Brave Farbling</h3>
+          <p>Protects Canvas, AudioBuffer, and WebGL from cross-site hardware fingerprinting.</p>
+        </div>
+        <span class="active-badge">Active</span>
+      </div>
+    </section>
+
+    <!-- Custom Filter Rules Editor -->
+    <section class="filter-editor-section">
+      <div class="section-header-row">
+        <div>
+          <h2>Custom Filter Lists (AdBlock Plus Syntax)</h2>
+          <p>Add custom network block rules or cosmetic element hiding selectors.</p>
+        </div>
+        <button class="primary-btn" id="saveFiltersBtn">Save & Apply Rules</button>
+      </div>
+
+      <div class="editor-wrap">
+        <textarea id="filterRulesInput" spellcheck="false" placeholder="! Enter custom Adblock filter rules here, one per line:&#10;||adservice.google.com^&#10;||analytics.tracker.example^&#10;##.sponsored-post&#10;##.newsletter-popup"></textarea>
+      </div>
+      <span class="status-msg" id="filterStatusMsg"></span>
+    </section>
+
+    <!-- Preset Subscribed Lists -->
+    <section class="presets-section">
+      <h2>Built-in Filter Subscriptions</h2>
+      <div class="preset-list">
+        <div class="preset-item">
+          <div>
+            <h4>Brave EasyList (English)</h4>
+            <span>Updated automatically • Core ad networks and sponsored widgets</span>
+          </div>
+          <span class="enabled-pill">Enabled</span>
+        </div>
+
+        <div class="preset-item">
+          <div>
+            <h4>EasyPrivacy (Trackers & Telemetry)</h4>
+            <span>Updated automatically • Third-party analytic beacons and surveillance scripts</span>
+          </div>
+          <span class="enabled-pill">Enabled</span>
+        </div>
+
+        <div class="preset-item">
+          <div>
+            <h4>Fanboy's Annoyance & Cookie Notice Filter</h4>
+            <span>Cosmetic hiding rules for cookie consent banners and overlays</span>
+          </div>
+          <span class="enabled-pill">Enabled</span>
+        </div>
+
+        <div class="preset-item">
+          <div>
+            <h4>Crypto-Miner Blacklist</h4>
+            <span>Stops in-browser background cryptocurrency mining scripts</span>
+          </div>
+          <span class="enabled-pill">Enabled</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="shields.js"></script>
+</body>
+</html>

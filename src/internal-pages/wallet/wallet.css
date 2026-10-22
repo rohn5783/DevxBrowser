@@ -1,0 +1,548 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  user-select: none;
+}
+
+body {
+  background-color: #12141A;
+  color: #FFFFFF;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.wallet-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 36px 24px;
+}
+
+/* Header */
+.wallet-header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wallet-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wallet-title h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.web3-badge {
+  font-size: 11px;
+  background: rgba(255, 118, 38, 0.2);
+  color: #FF7626;
+  border: 1px solid rgba(255, 118, 38, 0.35);
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.account-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1C2029;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.account-pill:hover {
+  background: #252A36;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.network-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #36B37E; /* Green online */
+  box-shadow: 0 0 6px #36B37E;
+}
+
+.account-addr {
+  color: #8C92A4;
+  font-family: monospace;
+}
+
+/* Portfolio Hero */
+.portfolio-hero {
+  background: linear-gradient(135deg, #1C202C 0%, #161822 100%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  padding: 28px 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-label {
+  font-size: 13px;
+  color: #8C92A4;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-val-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 8px 0 24px 0;
+}
+
+.portfolio-amount {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.portfolio-trend.positive {
+  font-size: 14px;
+  color: #36B37E;
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.action-btn.primary {
+  background: #FF7626;
+  color: white;
+}
+
+.action-btn.primary:hover {
+  background: #FB542B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 118, 38, 0.35);
+}
+
+.action-btn.secondary {
+  background: #292E3D;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.action-btn.secondary:hover {
+  background: #32394B;
+  transform: translateY(-2px);
+}
+
+/* Tabs */
+.wallet-tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 28px 0 20px 0;
+}
+
+.tab-link {
+  background: transparent;
+  border: none;
+  color: #8C92A4;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 4px;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+
+.tab-link:hover {
+  color: #FFFFFF;
+}
+
+.tab-link.active {
+  color: #FF7626;
+}
+
+.tab-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #FF7626;
+}
+
+.wallet-panel {
+  display: none;
+}
+
+.wallet-panel.active {
+  display: block;
+}
+
+/* Tokens List */
+.token-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.token-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #181B23;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 16px 20px;
+  transition: all 0.2s ease;
+}
+
+.token-row:hover {
+  background: #1E222D;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.token-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.token-symbol-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #252A38;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #FF7626;
+}
+
+.token-name-col h4 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.token-name-col span {
+  font-size: 12px;
+  color: #8C92A4;
+}
+
+.token-right {
+  text-align: right;
+}
+
+.token-balance {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.token-fiat {
+  font-size: 13px;
+  color: #8C92A4;
+}
+
+/* NFTs Grid */
+.nfts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.nft-card {
+  background: #181B23;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.nft-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 118, 38, 0.4);
+}
+
+.nft-image-box {
+  height: 180px;
+  background: linear-gradient(135deg, #2D142C 0%, #510A32 50%, #FF5000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+}
+
+.nft-meta {
+  padding: 14px;
+}
+
+.nft-meta h4 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nft-meta span {
+  font-size: 12px;
+  color: #8C92A4;
+}
+
+/* Transactions List */
+.tx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tx-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #181B23;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.tx-type-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(54, 179, 126, 0.15);
+  color: #36B37E;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.tx-type-tag.Sent {
+  background: rgba(255, 118, 38, 0.15);
+  color: #FF7626;
+}
+
+.tx-type-tag.Swap {
+  background: rgba(167, 66, 235, 0.15);
+  color: #A742EB;
+}
+
+/* Modals */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.modal-card {
+  background: #1C202B;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.close-modal-btn {
+  background: transparent;
+  border: none;
+  color: #8C92A4;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-body label {
+  font-size: 13px;
+  color: #B5B9C5;
+  display: block;
+  margin: 12px 0 6px 0;
+}
+
+.modal-input {
+  width: 100%;
+  background: #252A38;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+}
+
+.modal-input:focus {
+  border-color: #FF7626;
+}
+
+.fee-estimate {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #8C92A4;
+  margin: 16px 0;
+}
+
+.primary-btn {
+  background: #FF7626;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-btn.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.qr-placeholder {
+  margin: 16px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.qr-hint {
+  font-size: 13px;
+  color: #8C92A4;
+  margin-bottom: 16px;
+}
+
+.copy-box {
+  background: #252A38;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.full-addr {
+  font-family: monospace;
+  font-size: 11px;
+  color: #E2E4EB;
+  word-break: break-all;
+}
+
+.copy-btn {
+  background: #FF7626;
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Swap box */
+.swap-box {
+  background: #252A38;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.swap-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.swap-amount-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.swap-select {
+  background: #181B23;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.swap-arrow-divider {
+  text-align: center;
+  font-size: 18px;
+  color: #FF7626;
+  margin: 10px 0;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #36B37E;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 200;
+}
+
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}

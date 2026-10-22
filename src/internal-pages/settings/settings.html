@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brave Settings</title>
+  <link rel="stylesheet" href="settings.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="settings-layout">
+    <!-- Settings Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="#FF7626"><path d="M12 2L4 7V15C4 22.38 9.12 29.23 12 31C14.88 29.23 20 22.38 20 15V7L12 2Z"/></svg>
+        <span>Settings</span>
+      </div>
+      <nav class="nav-links">
+        <button class="nav-btn active" data-tab="shields">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Shields & Privacy
+        </button>
+        <button class="nav-btn" data-tab="appearance">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20v-20z"/></svg>
+          Appearance
+        </button>
+        <button class="nav-btn" data-tab="search">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Search Engine
+        </button>
+        <button class="nav-btn" data-tab="leo">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#A742EB" stroke-width="2"><path d="M12 2L14.2 8.3L20.5 10.5L14.2 12.7L12 19L9.8 12.7L3.5 10.5L9.8 8.3L12 2Z"/></svg>
+          Brave Leo (AI)
+        </button>
+        <button class="nav-btn" data-tab="cleardata">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          Clear Browsing Data
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Settings Main Panel -->
+    <main class="content-panel">
+      <!-- Shields Tab -->
+      <section class="tab-pane active" id="tab-shields">
+        <header class="section-header">
+          <h2>Brave Shields & Privacy</h2>
+          <p>Protect your identity, stop tracking scripts, and block intrusive advertisements.</p>
+        </header>
+
+        <div class="card">
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Trackers & Ads Blocking</h3>
+              <p>Blocks tracking pixels, surveillance beacons, and advertising networks.</p>
+            </div>
+            <select class="select-input" id="adBlockLevel">
+              <option value="standard" selected>Standard (Recommended)</option>
+              <option value="aggressive">Aggressive (Block all 3rd-party scripts)</option>
+              <option value="disabled">Disabled</option>
+            </select>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Upgrade Connections to HTTPS</h3>
+              <p>Automatically encrypts unencrypted HTTP traffic across all supported sites.</p>
+            </div>
+            <label class="switch"><input type="checkbox" id="httpsEverywhere" checked><span class="slider"></span></label>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Fingerprinting Protection</h3>
+              <p>Randomizes Canvas rendering, WebGL attributes, and AudioContext APIs.</p>
+            </div>
+            <select class="select-input" id="fingerprintingLevel">
+              <option value="standard" selected>Standard (Strict Randomization)</option>
+              <option value="aggressive">Aggressive</option>
+              <option value="off">Off</option>
+            </select>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Block Cross-Site Cookies</h3>
+              <p>Prevents websites from tracking you across disparate online properties.</p>
+            </div>
+            <label class="switch"><input type="checkbox" id="blockCookies" checked><span class="slider"></span></label>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Send "Do Not Track" and "Global Privacy Control" (GPC)</h3>
+              <p>Informs servers that you do not consent to personal data resale or profiling.</p>
+            </div>
+            <label class="switch"><input type="checkbox" id="dntToggle" checked><span class="slider"></span></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Appearance Tab -->
+      <section class="tab-pane" id="tab-appearance">
+        <header class="section-header">
+          <h2>Appearance</h2>
+          <p>Customize the look and feel of your Brave browser interface.</p>
+        </header>
+
+        <div class="card">
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Brave Theme</h3>
+              <p>Choose your dark or light appearance.</p>
+            </div>
+            <select class="select-input" id="themeSelect">
+              <option value="dark" selected>Brave Dark (Default)</option>
+              <option value="light">Brave Light</option>
+              <option value="midnight">Midnight Cyberpunk</option>
+            </select>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Tab Layout Style</h3>
+              <p>Switch between modern horizontal tabs or productivity-focused vertical tabs.</p>
+            </div>
+            <select class="select-input" id="tabLayoutSelect">
+              <option value="horizontal" selected>Horizontal (Tabs on Top)</option>
+              <option value="vertical">Vertical Tabs (Left Sidebar)</option>
+            </select>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Show Bookmarks Bar</h3>
+              <p>Display your favorite bookmarks directly below the omnibox.</p>
+            </div>
+            <label class="switch"><input type="checkbox" id="bookmarksBarToggle" checked><span class="slider"></span></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search Engine Tab -->
+      <section class="tab-pane" id="tab-search">
+        <header class="section-header">
+          <h2>Search Engine</h2>
+          <p>Configure search behavior in the address bar.</p>
+        </header>
+
+        <div class="card">
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Search Engine used in the Address Bar</h3>
+              <p>Default engine queried when typing keywords into the omnibox.</p>
+            </div>
+            <select class="select-input" id="defaultSearchSelect">
+              <option value="brave" selected>Brave Search (Private & Independent)</option>
+              <option value="duckduckgo">DuckDuckGo</option>
+              <option value="google">Google</option>
+              <option value="startpage">Startpage</option>
+              <option value="ecosia">Ecosia</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Brave Leo Tab -->
+      <section class="tab-pane" id="tab-leo">
+        <header class="section-header">
+          <h2>Brave Leo AI Assistant</h2>
+          <p>Configure privacy-preserving artificial intelligence integrated directly into your browser.</p>
+        </header>
+
+        <div class="card">
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Default AI Model</h3>
+              <p>Select which foundation model powers your Leo AI sidebar companion.</p>
+            </div>
+            <select class="select-input" id="leoModelSelect">
+              <option value="leo-llama-3-8b" selected>Llama 3 8B (Fast & Private)</option>
+              <option value="leo-claude-3-5">Claude 3.5 Sonnet (Advanced Reasoning)</option>
+              <option value="leo-mixtral-8x7b">Mixtral 8x7B (Multilingual)</option>
+            </select>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Auto-Suggest Page Summaries</h3>
+              <p>Show instant page overview prompt when navigating to long articles.</p>
+            </div>
+            <label class="switch"><input type="checkbox" id="leoAutoSuggest" checked><span class="slider"></span></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Clear Browsing Data Tab -->
+      <section class="tab-pane" id="tab-cleardata">
+        <header class="section-header">
+          <h2>Clear Browsing Data</h2>
+          <p>Erase your local traces, cookies, and cached data.</p>
+        </header>
+
+        <div class="card">
+          <div class="setting-item">
+            <div class="setting-text">
+              <h3>Time Range</h3>
+            </div>
+            <select class="select-input" id="clearTimeRange">
+              <option value="hour">Last hour</option>
+              <option value="24h" selected>Last 24 hours</option>
+              <option value="7d">Last 7 days</option>
+              <option value="all">All time</option>
+            </select>
+          </div>
+
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" id="clearHistory" checked>
+              <span>Browsing history</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="clearCookies" checked>
+              <span>Cookies and site data</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="clearCache" checked>
+              <span>Cached images and files</span>
+            </label>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <button class="primary-btn" id="clearDataBtn">Clear Data</button>
+            <span class="status-msg" id="clearStatusMsg"></span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

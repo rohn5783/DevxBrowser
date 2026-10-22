@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brave Rewards</title>
+  <link rel="stylesheet" href="rewards.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="rewards-container">
+    <header class="rewards-header">
+      <div class="brand">
+        <svg viewBox="0 0 32 32" width="36" height="36" fill="none"><path d="M16 4L3 27H29L16 4Z" fill="#FF5000"/><path d="M16 11L9.5 22.5H22.5L16 11Z" fill="#FFFFFF"/><path d="M16 16L12.5 22.5H19.5L16 16Z" fill="#4C4C4C"/></svg>
+        <div>
+          <h1>Brave Rewards</h1>
+          <p>Earn Basic Attention Tokens (BAT) for viewing privacy-preserving ads and tip your favorite creators.</p>
+        </div>
+      </div>
+      <div class="rewards-toggle-box">
+        <span>Brave Private Ads</span>
+        <label class="switch"><input type="checkbox" id="rewardsOptIn" checked><span class="slider"></span></label>
+      </div>
+    </header>
+
+    <!-- BAT Balance Card -->
+    <section class="balance-card">
+      <div class="balance-left">
+        <span class="label">Your BAT Balance</span>
+        <div class="bat-row">
+          <span class="bat-amount" id="batBalance">14.85</span>
+          <span class="bat-ticker">BAT</span>
+          <span class="fiat-sub" id="batFiatVal">≈ $4.16 USD</span>
+        </div>
+        <p class="payout-note">Next payout date: <strong>Nov 5th</strong> • Attention Score: <strong id="attentionScore">92%</strong></p>
+      </div>
+      <div class="balance-right">
+        <button class="primary-btn" id="claimRewardsBtn">Claim Rewards</button>
+      </div>
+    </section>
+
+    <!-- Creators Tipping Section -->
+    <section class="section-block">
+      <div class="section-title-row">
+        <h2>Tip Verified Creators</h2>
+        <span class="sub-label">Direct, private peer-to-peer appreciation</span>
+      </div>
+      <div class="creators-grid">
+        <div class="creator-card">
+          <div class="creator-avatar">W</div>
+          <div class="creator-info">
+            <h3>Wikipedia</h3>
+            <span class="verified-tag">✓ Verified Creator</span>
+            <p>The free encyclopedia that anyone can edit.</p>
+          </div>
+          <button class="tip-btn" data-creator="Wikipedia" data-url="https://wikipedia.org">Tip BAT</button>
+        </div>
+
+        <div class="creator-card">
+          <div class="creator-avatar eff">EFF</div>
+          <div class="creator-info">
+            <h3>Electronic Frontier Foundation</h3>
+            <span class="verified-tag">✓ Verified Creator</span>
+            <p>Defending digital privacy, free speech, and user rights.</p>
+          </div>
+          <button class="tip-btn" data-creator="EFF" data-url="https://eff.org">Tip BAT</button>
+        </div>
+
+        <div class="creator-card">
+          <div class="creator-avatar gh">GH</div>
+          <div class="creator-info">
+            <h3>Open Source Contributors</h3>
+            <span class="verified-tag">✓ Verified Creator</span>
+            <p>Supporting independent developers building the open web.</p>
+          </div>
+          <button class="tip-btn" data-creator="Open Source" data-url="https://github.com">Tip BAT</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tipping History -->
+    <section class="section-block">
+      <h2>Your Tipping History</h2>
+      <div class="tips-table-box" id="tipsTableBox">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="rewards.js"></script>
+</body>
+</html>

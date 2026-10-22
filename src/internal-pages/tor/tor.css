@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  user-select: none;
+}
+
+body {
+  background-color: #110B1B;
+  color: #FFFFFF;
+  min-height: 100vh;
+}
+
+.tor-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.tor-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.tor-badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(167, 66, 235, 0.15);
+  border: 1px solid rgba(167, 66, 235, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tor-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.tor-subtitle {
+  font-size: 15px;
+  color: #B5B9C5;
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+/* Circuit Card */
+.circuit-card {
+  background: #191226;
+  border: 1px solid rgba(167, 66, 235, 0.3);
+  border-radius: 18px;
+  padding: 28px 32px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.circuit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.circuit-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.circuit-status {
+  font-size: 13px;
+  color: #A742EB;
+  font-weight: 500;
+  display: block;
+  margin-top: 4px;
+}
+
+.circuit-refresh-btn {
+  background: rgba(167, 66, 235, 0.2);
+  border: 1px solid rgba(167, 66, 235, 0.4);
+  color: #DDA6FF;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.circuit-refresh-btn:hover {
+  background: #A742EB;
+  color: white;
+}
+
+/* Circuit Nodes diagram */
+.circuit-nodes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow-x: auto;
+  padding: 10px 0;
+  gap: 12px;
+}
+
+.circuit-node-box {
+  background: #251B38;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 16px 20px;
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.circuit-node-box:hover {
+  border-color: #A742EB;
+  transform: translateY(-2px);
+}
+
+.node-role {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #A742EB;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.node-country {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.node-ip {
+  font-size: 12px;
+  color: #8C92A4;
+  font-family: monospace;
+}
+
+.circuit-arrow {
+  color: #A742EB;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Checklist */
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.check-item {
+  background: #191226;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.check-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(167, 66, 235, 0.2);
+  color: #A742EB;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.check-item h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.check-item p {
+  font-size: 13px;
+  color: #8C92A4;
+  line-height: 1.5;
+}

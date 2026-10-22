@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brave Browser</title>
+  <link rel="stylesheet" href="styles/browser.css">
+  <link rel="stylesheet" href="styles/shields-popup.css">
+  <link rel="stylesheet" href="styles/leo-sidebar.css">
+  <link rel="stylesheet" href="styles/omnibox.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-dark">
+  <!-- Browser Frame Wrapper -->
+  <div class="browser-window">
+    <!-- Top Bar: Tabs & Window Controls -->
+    <header class="top-bar" id="top-bar">
+      <!-- Brave Brand Icon / Menu trigger -->
+      <button class="top-menu-btn" id="braveIconBtn" title="Brave Menu">
+        <span class="icon-svg" id="braveLogoSvg"></span>
+      </button>
+
+      <!-- Horizontal Tabs Container -->
+      <div class="tab-strip-container" id="tabStripContainer">
+        <div class="tab-strip" id="tabStrip">
+          <!-- Dynamic Tabs Injected Here -->
+        </div>
+        <button class="new-tab-btn" id="newTabBtn" title="New Tab (Ctrl+T)">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <button class="tab-action-btn" id="toggleVerticalTabsBtn" title="Toggle Vertical Tabs Layout">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+        </button>
+      </div>
+
+      <!-- Window Titlebar Controls -->
+      <div class="window-controls">
+        <button class="win-btn" id="minBtn" title="Minimize">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="12" x2="20" y2="12"/></svg>
+        </button>
+        <button class="win-btn" id="maxBtn" title="Maximize">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/></svg>
+        </button>
+        <button class="win-btn close" id="closeBtn" title="Close">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Navigation & Toolbars Bar -->
+    <div class="nav-bar" id="nav-bar">
+      <!-- Back, Forward, Reload, Home -->
+      <div class="nav-controls">
+        <button class="nav-btn" id="backBtn" title="Back (Alt+Left)" disabled>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="nav-btn" id="forwardBtn" title="Forward (Alt+Right)" disabled>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="nav-btn" id="reloadBtn" title="Reload (Ctrl+R)">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" id="reloadSvg"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+        </button>
+        <button class="nav-btn" id="homeBtn" title="Open New Tab (Home)">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </button>
+      </div>
+
+      <!-- Omnibox (Address & Search Bar) -->
+      <div class="omnibox-wrapper" id="omniboxWrapper">
+        <div class="omnibox-container" id="omniboxContainer">
+          <!-- Security indicator -->
+          <div class="security-badge" id="securityBadge" title="Connection security">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#36B37E" stroke-width="2.2" id="securityLockSvg"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+
+          <!-- URL Input -->
+          <input type="text" id="omniboxInput" class="omnibox-input" placeholder="Search or enter URL..." autocomplete="off" spellcheck="false">
+
+          <!-- Right Omnibox Action Icons -->
+          <div class="omnibox-actions">
+            <!-- SpeedReader (Reader Mode) -->
+            <button class="omni-icon-btn" id="speedReaderBtn" title="Toggle Brave SpeedReader (Distraction-Free Mode)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </button>
+
+            <!-- Copy Clean Link (Strip Trackers) -->
+            <button class="omni-icon-btn" id="copyCleanLinkBtn" title="Copy Clean Link (Strip Trackers & Params)">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </button>
+
+            <!-- Bookmark Star -->
+            <button class="omni-icon-btn" id="bookmarkBtn" title="Bookmark this tab (Ctrl+D)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" id="starSvg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </button>
+
+            <!-- Brave Shields Lion Badge -->
+            <button class="shields-badge-btn" id="shieldsBtn" title="Brave Shields">
+              <span class="shields-lion-icon" id="shieldsLionSvg"></span>
+              <span class="shields-count-pill" id="shieldsCountPill">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Omnibox Search Autocomplete Suggestions Dropdown -->
+        <div class="omnibox-suggestions" id="omniboxSuggestions">
+          <!-- Dynamic suggestions inserted here -->
+        </div>
+      </div>
+
+      <!-- Browser Chrome Action Buttons -->
+      <div class="chrome-actions">
+        <!-- Brave Leo AI Button -->
+        <button class="chrome-action-btn leo-btn" id="leoToggleBtn" title="Ask Brave Leo (AI Assistant)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M12 2L14.2 8.3L20.5 10.5L14.2 12.7L12 19L9.8 12.7L3.5 10.5L9.8 8.3L12 2Z" fill="#A742EB"/><path d="M19 16L20 18.5L22.5 19.5L20 20.5L19 23L18 20.5L15.5 19.5L18 18.5L19 16Z" fill="#FF7626"/></svg>
+          <span class="action-text">Leo</span>
+        </button>
+
+        <!-- Brave Wallet Button -->
+        <button class="chrome-action-btn" id="walletBtn" title="Brave Wallet">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M16 12h.01"/><path d="M18 8H6a2 2 0 0 0-2 2v8"/></svg>
+        </button>
+
+        <!-- Brave Rewards / Tip Button -->
+        <button class="chrome-action-btn" id="rewardsBtn" title="Brave Rewards">
+          <svg viewBox="0 0 32 32" width="18" height="18" fill="none"><path d="M16 4L3 27H29L16 4Z" fill="#FF5000"/><path d="M16 11L9.5 22.5H22.5L16 11Z" fill="#FFFFFF"/><path d="M16 16L12.5 22.5H19.5L16 16Z" fill="#4C4C4C"/></svg>
+        </button>
+
+        <!-- Main Hamburger Menu Button -->
+        <button class="chrome-action-btn" id="menuBtn" title="Customize and control Brave">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="1.5"/><circle cx="12" cy="5" r="1.5"/><circle cx="12" cy="19" r="1.5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Bookmarks Quick Bar -->
+    <div class="bookmarks-bar" id="bookmarksBar">
+      <!-- Quick Bookmark Favicon Chips injected here -->
+    </div>
+
+    <!-- Find in Page Bar (Ctrl+F) -->
+    <div class="find-bar" id="findBar">
+      <div class="find-inner">
+        <input type="text" id="findInput" placeholder="Find in page...">
+        <span class="find-count" id="findCount">0/0</span>
+        <button class="find-btn" id="findPrevBtn" title="Previous match">▲</button>
+        <button class="find-btn" id="findNextBtn" title="Next match">▼</button>
+        <button class="find-btn close-btn" id="findCloseBtn" title="Close">&times;</button>
+      </div>
+    </div>
+
+    <!-- Main Viewport (Webviews + Leo AI Sidebar) -->
+    <div class="main-viewport" id="mainViewport">
+      <!-- Vertical Tabs Sidebar (Used when Vertical Tabs mode is toggled) -->
+      <aside class="vertical-tabs-sidebar" id="verticalTabsSidebar">
+        <div class="vertical-tabs-header">
+          <span>Tabs</span>
+          <button class="new-tab-btn" id="newVerticalTabBtn" title="New Tab">+</button>
+        </div>
+        <div class="vertical-tabs-list" id="verticalTabsList">
+          <!-- Dynamic Tabs -->
+        </div>
+      </aside>
+
+      <!-- WebViews Container -->
+      <div class="webviews-container" id="webviewsContainer">
+        <!-- Guest <webview> elements injected here dynamically -->
+      </div>
+
+      <!-- Brave Leo AI Assistant Sidebar -->
+      <aside class="leo-sidebar" id="leoSidebar">
+        <div class="leo-sidebar-header">
+          <div class="leo-brand">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M12 2L14.2 8.3L20.5 10.5L14.2 12.7L12 19L9.8 12.7L3.5 10.5L9.8 8.3L12 2Z" fill="#A742EB"/><path d="M19 16L20 18.5L22.5 19.5L20 20.5L19 23L18 20.5L15.5 19.5L18 18.5L19 16Z" fill="#FF7626"/></svg>
+            <h3>Brave Leo</h3>
+          </div>
+          <div class="leo-header-controls">
+            <select class="leo-model-select" id="leoModelPicker">
+              <option value="leo-llama-3-8b">Llama 3 8B</option>
+              <option value="leo-claude-3-5">Claude 3.5</option>
+              <option value="leo-mixtral-8x7b">Mixtral</option>
+            </select>
+            <button class="close-sidebar-btn" id="closeLeoBtn" title="Close Leo">&times;</button>
+          </div>
+        </div>
+
+        <!-- Quick Action Prompt Chips -->
+        <div class="leo-quick-chips">
+          <button class="chip-btn" id="summarizePageBtn">✨ Summarize Page</button>
+          <button class="chip-btn" id="keyTakeawaysBtn">💡 Key Points</button>
+          <button class="chip-btn" id="explainBtn">❓ Explain</button>
+        </div>
+
+        <!-- Leo Chat Stream -->
+        <div class="leo-messages-container" id="leoMessages">
+          <div class="leo-message assistant">
+            <div class="msg-bubble">
+              👋 Hi! I'm <strong>Brave Leo</strong>, your private AI browser assistant. I can summarize this page, answer questions, write code, and more. Your chats remain private.
+            </div>
+          </div>
+        </div>
+
+        <!-- Leo Input Area -->
+        <div class="leo-input-box">
+          <textarea id="leoPromptInput" placeholder="Ask Leo about this page or anything..." rows="1"></textarea>
+          <button class="leo-send-btn" id="leoSendBtn" title="Send message">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Brave Shields Interactive Popover -->
+    <div class="shields-popover" id="shieldsPopover">
+      <div class="shields-popover-header">
+        <div class="shields-brand">
+          <span class="popover-lion" id="popoverLionSvg"></span>
+          <div>
+            <h4>Brave Shields</h4>
+            <span class="shields-domain" id="shieldsCurrentDomain">domain.com</span>
+          </div>
+        </div>
+        <!-- Master Shields Toggle -->
+        <label class="switch large">
+          <input type="checkbox" id="masterShieldsToggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Stats Box -->
+      <div class="shields-stats-box">
+        <div class="shields-stat-num" id="siteBlockedCount">0</div>
+        <div class="shields-stat-text">Trackers & ads blocked on this page</div>
+      </div>
+
+      <!-- Granular Controls List -->
+      <div class="shields-controls-list">
+        <div class="shields-control-row">
+          <span>Block cross-site trackers</span>
+          <label class="switch"><input type="checkbox" id="blockTrackersToggle" checked><span class="slider"></span></label>
+        </div>
+        <div class="shields-control-row">
+          <span>Upgrade to HTTPS</span>
+          <label class="switch"><input type="checkbox" id="upgradeHttpsToggle" checked><span class="slider"></span></label>
+        </div>
+        <div class="shields-control-row">
+          <span>Block scripts</span>
+          <label class="switch"><input type="checkbox" id="blockScriptsToggle"><span class="slider"></span></label>
+        </div>
+        <div class="shields-control-row">
+          <span>Fingerprinting protection</span>
+          <select class="mini-select" id="fingerprintSelect">
+            <option value="standard" selected>Standard</option>
+            <option value="aggressive">Aggressive</option>
+            <option value="off">Off</option>
+          </select>
+        </div>
+        <div class="shields-control-row">
+          <span title="Clears cookies and site storage as soon as you close this tab">Forget me when closed</span>
+          <label class="switch"><input type="checkbox" id="forgetSiteToggle"><span class="slider"></span></label>
+        </div>
+        <div class="shields-control-row">
+          <span>Block cookie notices</span>
+          <label class="switch"><input type="checkbox" id="blockCookieNoticesToggle" checked><span class="slider"></span></label>
+        </div>
+      </div>
+
+      <!-- Drill-Down: Blocked Items Drawer -->
+      <div class="blocked-items-drawer" id="blockedItemsDrawer">
+        <button class="drawer-toggle-btn" id="toggleBlockedListBtn">
+          <span>View blocked items</span>
+          <span class="drawer-arrow" id="drawerArrow">▼</span>
+        </button>
+        <div class="blocked-items-list" id="blockedItemsList">
+          <!-- URLs of blocked ads/trackers injected here -->
+        </div>
+      </div>
+
+      <div class="shields-popover-footer">
+        <button class="footer-link-btn" id="openFullShieldsSettingsBtn">Shields settings</button>
+      </div>
+    </div>
+
+    <!-- Main Hamburger Menu Dropdown -->
+    <div class="browser-menu-dropdown" id="browserMenuDropdown">
+      <button class="menu-item" id="menuNewTab"><span class="menu-label">New Tab</span><span class="menu-shortcut">Ctrl+T</span></button>
+      <button class="menu-item" id="menuTorWindow"><span class="menu-label">New Private Window with Tor</span><span class="menu-shortcut">Ctrl+Shift+N</span></button>
+      <div class="menu-divider"></div>
+      <button class="menu-item" id="menuHistory"><span class="menu-label">History</span><span class="menu-shortcut">Ctrl+H</span></button>
+      <button class="menu-item" id="menuBookmarks"><span class="menu-label">Bookmarks</span><span class="menu-shortcut">Ctrl+B</span></button>
+      <button class="menu-item" id="menuDownloads"><span class="menu-label">Downloads</span><span class="menu-shortcut">Ctrl+J</span></button>
+      <div class="menu-divider"></div>
+      <button class="menu-item" id="menuWallet"><span class="menu-label">Brave Wallet</span></button>
+      <button class="menu-item" id="menuRewards"><span class="menu-label">Brave Rewards & BAT</span></button>
+      <button class="menu-item" id="menuPlaylist"><span class="menu-label">Brave Playlist</span></button>
+      <button class="menu-item" id="menuShields"><span class="menu-label">Shields & Filter Lists</span></button>
+      <button class="menu-item" id="menuSettings"><span class="menu-label">Settings</span></button>
+      <div class="menu-divider"></div>
+      <div class="menu-zoom-row">
+        <span>Zoom</span>
+        <div class="zoom-btns">
+          <button id="zoomOutBtn">−</button>
+          <span id="zoomLevelText">100%</span>
+          <button id="zoomInBtn">+</button>
+        </div>
+      </div>
+      <button class="menu-item" id="menuFindInPage"><span class="menu-label">Find in Page...</span><span class="menu-shortcut">Ctrl+F</span></button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/web-adapter.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/tab-manager.js"></script>
+  <script src="js/omnibox.js"></script>
+  <script src="js/shields-ui.js"></script>
+  <script src="js/leo-ui.js"></script>
+  <script src="js/bookmarks-bar.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

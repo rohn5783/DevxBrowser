@@ -1,0 +1,25 @@
+{
+  "name": "brave-browser",
+  "version": "1.0.0",
+  "description": "Full-featured Brave Browser Clone with Brave Shields, Leo AI, Web3 Wallet, BAT Rewards, Tor Mode, and New Tab Page",
+  "type": "module",
+  "main": "src/main/index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test-all.js"
+  },
+  "keywords": [
+    "brave",
+    "browser",
+    "adblock",
+    "shields",
+    "privacy",
+    "electron",
+    "web3"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^44.9.3"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "version": 2,
+  "cleanUrls": true,
+  "public": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/", "destination": "/src/renderer/index.html" },
+    { "source": "/styles/:match*", "destination": "/src/renderer/styles/:match*" },
+    { "source": "/js/:match*", "destination": "/src/renderer/js/:match*" },
+    { "source": "/assets/:match*", "destination": "/assets/:match*" },
+
+    { "source": "/brave/newtab", "destination": "/src/internal-pages/newtab/newtab.html" },
+    { "source": "/brave/settings", "destination": "/src/internal-pages/settings/settings.html" },
+    { "source": "/brave/wallet", "destination": "/src/internal-pages/wallet/wallet.html" },
+    { "source": "/brave/rewards", "destination": "/src/internal-pages/rewards/rewards.html" },
+    { "source": "/brave/history", "destination": "/src/internal-pages/history/history.html" },
+    { "source": "/brave/bookmarks", "destination": "/src/internal-pages/bookmarks/bookmarks.html" },
+    { "source": "/brave/downloads", "destination": "/src/internal-pages/downloads/downloads.html" },
+    { "source": "/brave/tor", "destination": "/src/internal-pages/tor/tor.html" },
+    { "source": "/brave/shields", "destination": "/src/internal-pages/shields/shields.html" },
+    { "source": "/brave/playlist", "destination": "/src/internal-pages/playlist/playlist.html" },
+
+    { "source": "/brave/:page/:file*", "destination": "/src/internal-pages/:page/:file*" },
+    { "source": "/internal-pages/:match*", "destination": "/src/internal-pages/:match*" },
+    { "source": "/src/:match*", "destination": "/src/:match*" }
+  ]
+}
